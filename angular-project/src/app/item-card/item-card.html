@@ -1,0 +1,11 @@
+<div class="card" [ngClass]="{ 'featured': item.id === 1 }">
+  <div class="badge" *ngIf="item.id === 1">
+    NEW
+  </div>
+
+  <img [src]="item.img" [alt]="item.title">
+
+  <h3>{{ item.title }}</h3>
+  <p>{{ item.description }}</p>
+
+</div>
