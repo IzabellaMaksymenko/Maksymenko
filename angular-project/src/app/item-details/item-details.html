@@ -1,0 +1,7 @@
+<div *ngIf="item" class="details">
+  <h2>{{ item.title }}</h2>
+  <img [src]="item.img" [alt]="item.title">
+  <p>{{ item.description }}</p>
+
+  <a routerLink="/">← Повернутися до списку</a>
+</div>

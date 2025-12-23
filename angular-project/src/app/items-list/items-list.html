@@ -8,7 +8,6 @@
 <div class="projects-grid">
   <app-item-card
     *ngFor="let item of filteredItems"
-    [item]="item"
-    (itemSelected)="onItemSelected($event)">
+    [item]="item">
   </app-item-card>
 </div>

@@ -40,10 +40,14 @@ export class DataService {
   filterItems(query: string): void {
     const q = query.toLowerCase();
     const filtered = this.mockData.filter(
-      (item: WebProject) =>
+      (item) =>
         item.title.toLowerCase().includes(q) ||
         item.description.toLowerCase().includes(q)
     );
     this.itemsSubject.next(filtered);
+  }
+
+  getItemById(id: number): WebProject | undefined {
+    return this.mockData.find(item => item.id === id);
   }
 }
