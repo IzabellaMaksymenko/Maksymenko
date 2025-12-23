@@ -1,6 +1,14 @@
+<input
+  type="text"
+  [(ngModel)]="searchText"
+  placeholder="Пошук..."
+  class="search-input"
+/>
+
 <div class="projects-grid">
   <app-item-card
-    *ngFor="let p of projects"
-    [item]="p">
+    *ngFor="let item of filteredItems"
+    [item]="item"
+    (itemSelected)="onItemSelected($event)">
   </app-item-card>
 </div>

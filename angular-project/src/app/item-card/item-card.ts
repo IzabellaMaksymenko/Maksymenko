@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WebProject } from '../items-list/items-list';
 
@@ -10,6 +10,11 @@ import { WebProject } from '../items-list/items-list';
   styleUrls: ['./item-card.css'],
 })
 export class ItemCardComponent {
-  @Input()
-  item!: WebProject;
+  @Input() item!: WebProject;
+
+  @Output() itemSelected = new EventEmitter<WebProject>();
+
+  onDetailsClick() {
+    this.itemSelected.emit(this.item);
+  }
 }

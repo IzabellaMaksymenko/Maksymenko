@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ItemCardComponent } from '../item-card/item-card';
 
 export interface WebProject {
@@ -12,11 +13,13 @@ export interface WebProject {
 @Component({
   selector: 'app-items-list',
   standalone: true,
-  imports: [CommonModule, ItemCardComponent],
+  imports: [CommonModule, FormsModule, ItemCardComponent],
   templateUrl: './items-list.html',
   styleUrls: ['./items-list.css'],
 })
 export class ItemsListComponent {
+  searchText = '';
+
   projects: WebProject[] = [
     {
       id: 1,
@@ -37,4 +40,18 @@ export class ItemsListComponent {
       img: 'https://picsum.photos/500/300?random=13',
     },
   ];
+
+  get filteredItems(): WebProject[] {
+    if (!this.searchText) {
+      return this.projects;
+    }
+
+    return this.projects.filter((project) =>
+      project.title.toLowerCase().includes(this.searchText.toLowerCase()),
+    );
+  }
+
+  onItemSelected(item: WebProject) {
+    console.log('Обрано елемент:', item);
+  }
 }
