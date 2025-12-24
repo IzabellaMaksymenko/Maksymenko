@@ -25,6 +25,9 @@ export class ItemsListComponent {
 
   constructor(private dataService: DataService) {
     this.projects$ = this.dataService.getItemsStream();
-    this.dataService.filterItems('');
+  }
+
+  onSearch(): void {
+    this.dataService.filterItems(this.searchText);
   }
 }
