@@ -7,7 +7,7 @@
 
 <div class="projects-grid">
   <app-item-card
-    *ngFor="let item of filteredItems"
+    *ngFor="let item of (projects$ | async)"
     [item]="item">
   </app-item-card>
 </div>
