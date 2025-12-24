@@ -1,0 +1,34 @@
+<h2>Додавання нового елемента</h2>
+
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Назва</label>
+    <input type="text" formControlName="title" />
+
+    <small *ngIf="title?.invalid && title?.touched">
+      Поле є обовʼязковим
+    </small>
+  </div>
+
+  <div>
+    <label>Опис</label>
+    <textarea formControlName="description"></textarea>
+
+    <small *ngIf="description?.invalid && description?.touched">
+      Поле є обовʼязковим
+    </small>
+  </div>
+
+  <div>
+    <label>URL зображення</label>
+    <input type="text" formControlName="img" />
+
+    <small *ngIf="img?.invalid && img?.touched">
+      Поле є обовʼязковим
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="itemForm.invalid">
+    Зберегти
+  </button>
+</form>

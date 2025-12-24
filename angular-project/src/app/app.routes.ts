@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout';
 import { ItemsListComponent } from './items-list/items-list';
 import { ItemDetailsComponent } from './item-details/item-details';
+import { ItemFormComponent } from './item-form/item-form';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path: 'items',
         component: ItemsListComponent,
+      },
+      {
+        path: 'items/new',
+        component: ItemFormComponent,
       },
       {
         path: 'items/:id',
