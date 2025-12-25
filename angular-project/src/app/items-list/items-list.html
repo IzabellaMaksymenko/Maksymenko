@@ -1,13 +1,15 @@
-<a routerLink="/items/new" class="add-btn">
-  Додати елемент
-</a>
+<div class="controls-wrapper">
+  <a routerLink="/items/new" class="add-btn">
+    Додати елемент
+  </a>
 
-<input
-  type="text"
-  [(ngModel)]="searchText"
-  placeholder="Пошук..."
-  class="search-input"
-/>
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Пошук..."
+    class="search-input"
+  />
+</div>
 
 <div class="projects-grid">
   <app-item-card
