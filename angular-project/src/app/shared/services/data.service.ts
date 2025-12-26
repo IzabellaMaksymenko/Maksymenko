@@ -28,6 +28,8 @@ export class DataService {
         ),
         catchError((error) => {
           console.error('Помилка отримання даних', error);
+          // Додаємо повідомлення для користувача
+          alert('❌ Не вдалося завантажити дані. Спробуйте пізніше.');
           return throwError(() => new Error('Не вдалося завантажити дані'));
         }),
       )
@@ -46,6 +48,8 @@ export class DataService {
     return this.http.post<WebProject>('/products', item).pipe(
       catchError((error) => {
         console.error('Помилка додавання елемента', error);
+        // Додаємо повідомлення для користувача
+        alert('❌ Не вдалося додати елемент. Спробуйте пізніше.');
         return throwError(() => new Error('Не вдалося додати елемент'));
       }),
     );
